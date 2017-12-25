@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>My Movie App</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<form onsubmit="queryDB();">
-	<input type="text" name="search" class="search">
-	<input type="submit" name="submit">
-</form>
-<div class="resultsDisplay">
-	<ul class="resultsList">
-	</ul>
-</div>
+	<div id="searchDiv">
+		<form v-on:submit.prevent="onSubmit">
+			<input v-model="movie" type="text" name="search" class="search">
+			<input type="submit" name="submit">
+		</form>
+		<ul class="resultList">
+			<li v-for:"result in results">
+				{{result.title}}
+			</li>
+		</ul>
+	</div>
+<script src="vue.js"></script>
+<script src="appKey.js"></script>
 <script src="app.js" type="text/javascript"></script>
 </body>
 </html>
